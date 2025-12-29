@@ -2,4 +2,10 @@ trigger: none
 pool: umesh-the-agent
 
 jobs:
--job 
+  - job: terraform
+    steps:
+    - task: TerraformTask@5
+      inputs:
+        provider: 'azurerm'
+        command: 'init'
+        workingDirectory: '$(System.DefaultWorkingDirectory)/environment/dev'
