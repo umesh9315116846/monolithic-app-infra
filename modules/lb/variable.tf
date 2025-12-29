@@ -1,0 +1,10 @@
+variable "lb_name" {}
+variable "location" {}
+variable "resource_group_name" {}
+variable "pool_name" {}
+variable "probe_name" {}
+variable "rule_name" {}
+variable "pip_name" {}
+variable "nic_name" {}
+variable "lb_name" {}
+variable "lb_name" {}
