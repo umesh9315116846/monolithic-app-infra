@@ -1,0 +1,5 @@
+trigger: none
+pool: umesh-the-agent
+
+jobs:
+-job 
