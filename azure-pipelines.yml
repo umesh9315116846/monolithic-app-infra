@@ -4,28 +4,33 @@ pool: umesh-the-agent
 jobs:
   - job: terraform
     steps:
+    
     - task: TerraformTask@5
       inputs:
         provider: 'azurerm'
         command: 'init'
         workingDirectory: '$(System.DefaultWorkingDirectory)/environment/dev'
-        backendServiceArm: 'bittubhaiya_service_connection'
-        backendAzureRmOverrideSubscriptionID: '792b5051-461b-4568-abbd-b3d549f22f8c'
+        backendServiceArm: 'service_connection_norway_client2'
+        backendAzureRmOverrideSubscriptionID: '310dec27-9d1f-4f6d-8cc0-356278cce859'
         backendAzureRmResourceGroupName: 'rg_servicetest'
-        backendAzureRmStorageAccountName: 'testrg0002storageaccount'
+        backendAzureRmStorageAccountName: 'testrg0003storageaccount'
         backendAzureRmContainerName: 'backendcontainer'
         backendAzureRmKey: 'dev.terraform.tfstate'
+
 
     - task: TerraformTask@5
       inputs:
         provider: 'azurerm'
         command: 'plan'
         workingDirectory: '$(System.DefaultWorkingDirectory)/environment/dev'
-        environmentServiceNameAzureRM: 'bittubhaiya_service_connection'
+        environmentServiceNameAzureRM: 'service_connection_norway_client2'
+        environmentAzureRmOverrideSubscriptionID: '310dec27-9d1f-4f6d-8cc0-356278cce859'
 
+    
     - task: TerraformTask@5
       inputs:
         provider: 'azurerm'
         command: 'apply'
         workingDirectory: '$(System.DefaultWorkingDirectory)/environment/dev'
-        environmentServiceNameAzureRM: 'bittubhaiya_service_connection'
+        environmentServiceNameAzureRM: 'service_connection_norway_client2'
+        environmentAzureRmOverrideSubscriptionID: '310dec27-9d1f-4f6d-8cc0-356278cce859'
