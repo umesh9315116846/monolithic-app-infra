@@ -7,7 +7,7 @@ terraform {
     }
     backend "azurerm" {
       resource_group_name  = "rg_servicetest"
-      storage_account_name = "testrg0002storageaccount"
+      storage_account_name = "testrg0003storageaccount"
       container_name       = "backendcontainer"
       key                  = "dev.terraform.tfstate"
     
@@ -16,5 +16,5 @@ terraform {
 
 provider "azurerm" {
   features {}
-  subscription_id = "792b5051-461b-4568-abbd-b3d549f22f8c"
+  subscription_id = "310dec27-9d1f-4f6d-8cc0-356278cce859"
 }
