@@ -34,7 +34,7 @@ data "azurerm_public_ip" "frnt_pip" {
   name = each.value.vm_name
   location = each.value.location
   resource_group_name = each.value.resource_group_name
-  size = "Standard_B1s"
+  size = "Standard_B2ats_v2"
   admin_username = "Umesh123"
   admin_password = "Umesh@12345"
 disable_password_authentication = false
