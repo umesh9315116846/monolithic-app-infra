@@ -23,6 +23,12 @@ subnet_name = {
     resource_group_name  = "test_rg_01"
     address_prefixes     = ["10.0.0.0/24"]
   }
+  subnet2 = {
+    name                 = "backend_subnet_002"
+    virtual_network_name = "test_vnet_002"
+    resource_group_name  = "test_rg_01"
+    address_prefixes     = ["10.0.1.0/24"]
+  }
 }
 
 pip_name = {
@@ -58,21 +64,21 @@ vms = {
 
   }
 
-  # vm2 = {
-  #   vm_name              = "test-vm-03"
-  #   nic_name             = "test_vm_02"
-  #   location             = "norwayeast"
-  #   resource_group_name  = "test_rg_01"
-  #   virtual_network_name = "test_vnet_002"
-  #   subnet_name          = "test_subnet_002"
-  #   pip_name             = "test_pip_002"
+  vm2 = {
+    vm_name              = "backend-vm-01"
+    nic_name             = "backend_vm_01"
+    location             = "norwayeast"
+    resource_group_name  = "test_rg_01"
+    virtual_network_name = "test_vnet_002"
+    subnet_name          = "backend_subnet_002"
+    pip_name             = "test_pip_002"
 
-  #   publisher = "Canonical"
-  #   offer     = "0001-com-ubuntu-server-jammy"
-  #   sku       = "22_04-lts"
-  #   version   = "latest"
+    publisher = "Canonical"
+    offer     = "0001-com-ubuntu-server-jammy"
+    sku       = "22_04-lts"
+    version   = "latest"
 
-  # }
+  }
 }
 
 # mssql_name = {
