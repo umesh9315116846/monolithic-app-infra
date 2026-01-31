@@ -1,6 +1,19 @@
 trigger: none
 pool: umesh-the-agent
 
+parameters:
+- name: environment # Required as first property.
+  displayName: select environment # Human-readable name for the parameter.
+  type: string
+  values:
+  - dev
+  - prod
+
+# variables:
+# - name: string # Required as first property. Variable name.
+#   value: string # Variable value.
+  
+
 jobs:
   - job: terraform
     steps:
@@ -11,9 +24,9 @@ jobs:
         command: 'init'
         workingDirectory: '$(System.DefaultWorkingDirectory)/environment/dev'
         backendServiceArm: 'service_connection_norway_client2'
-        backendAzureRmOverrideSubscriptionID: '310dec27-9d1f-4f6d-8cc0-356278cce859'
+        backendAzureRmOverrideSubscriptionID: 'eab63ffb-bf3a-4d0f-b9f7-d3c577ca3158'
         backendAzureRmResourceGroupName: 'rg_servicetest'
-        backendAzureRmStorageAccountName: 'testrg0003storageaccount'
+        backendAzureRmStorageAccountName: 'testrg0004storageaccount'
         backendAzureRmContainerName: 'backendcontainer'
         backendAzureRmKey: 'dev.terraform.tfstate'
 
@@ -24,7 +37,7 @@ jobs:
         command: 'plan'
         workingDirectory: '$(System.DefaultWorkingDirectory)/environment/dev'
         environmentServiceNameAzureRM: 'service_connection_norway_client2'
-        environmentAzureRmOverrideSubscriptionID: '310dec27-9d1f-4f6d-8cc0-356278cce859'
+        environmentAzureRmOverrideSubscriptionID: 'eab63ffb-bf3a-4d0f-b9f7-d3c577ca3158'
 
     
     - task: TerraformTask@5
@@ -33,4 +46,4 @@ jobs:
         command: 'apply'
         workingDirectory: '$(System.DefaultWorkingDirectory)/environment/dev'
         environmentServiceNameAzureRM: 'service_connection_norway_client2'
-        environmentAzureRmOverrideSubscriptionID: '310dec27-9d1f-4f6d-8cc0-356278cce859'
+        environmentAzureRmOverrideSubscriptionID: 'eab63ffb-bf3a-4d0f-b9f7-d3c577ca3158'
